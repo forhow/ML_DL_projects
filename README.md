@@ -43,7 +43,9 @@ Projects Completed
   - Model : RNN (LSTM)
   - Visualization : Line chart with actual price and predicted price
  
- ref. Projects in Lesson
+ ref 1. Projects in Lesson
   - Toy projects in Machine Learning / Deep Learning Lessons
 
+ref 2. datas
+ - some datas for projects : .csv, .xlsx
 
