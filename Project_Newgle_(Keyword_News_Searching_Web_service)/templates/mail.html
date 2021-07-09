@@ -1,0 +1,31 @@
+{% extends 'result.html' %}
+
+{% block content %}
+<style>
+div.image {
+   text-align: center;
+   margin-left: auto;
+   margin-right: auto;
+   animation-duration: 3s;
+   animation-name: slidein;
+   animation-iteration-count: 1;
+}
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+</style>
+<hr>
+<div class="image">
+    <h1>메일을 성공적으로 보냈습니다.</h1>
+    <img src="/static/images/img.png">
+</div>
+
+{% endblock %}

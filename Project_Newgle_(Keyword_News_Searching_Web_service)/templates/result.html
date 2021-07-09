@@ -1,0 +1,142 @@
+
+{% extends 'home.html' %}
+
+
+{% block content %}
+
+<style>
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 32% 32% 32%;
+  grid-gap: 1%;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: #EEEEEE;
+  position: relative;
+
+}
+#key{
+  font-family: verdana;
+  font-size: 32px;
+}
+h1.red{
+  border-left: 8px solid #E74C3C;
+  background-color: #F9EBEA;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+h1.blue{
+  border-left: 8px solid #3F51B5;
+  background-color: #E8EAF6;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+h2{
+  margin-left: 20px;
+}
+
+h4{
+  position: relative;
+  bottom: 30px;
+  margin-left: 20px;
+}
+a{
+  position: absolute;
+  bottom: 10px;
+  margin-left: 100px
+}
+p{
+  text-align: center;
+}
+span{
+  position: absolute;
+  bottom: 10px;
+  margin-left: 20px
+  }
+#download1{
+  background-color: #9FA8DA;
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  height: 20px;
+  }
+#download2{
+  background-color: #9FA8DA;
+  position: absolute;
+  top: 50px;
+  left: 120px;
+  height: 20px;
+  }
+
+</style>
+
+<body>
+<form action="{% url 'mail_sender' %}" method="post">
+    <div class="button">
+      {% csrf_token %}
+      <input id="mail_sender" type="text" placeholder="e-mail을 입력하세요." name="mail_sender">
+      <button class='button button1' type="submit" >보내기</button>
+    </div>
+</form>
+
+  <a id='download1' class='button button1' href="/word/search_result_{{keyword}}.docx" download>Word</a>
+  <a id='download2' class='button button1' href="/word/search_result_{{keyword}}.pdf" download>PDF</a>
+
+<p id="key">검색어: {{keyword}}</p>
+
+
+
+<div class="grid-container">
+  <div class="parent">
+  <div id="mh" >
+    <h1 class='red' align="center">{{mh_news}}</h1>
+    <h2 id="mh_title">{{mh_title}} ({{mh_date}})</h2><br>
+    <h4 id="mh_summary">{{mh_summary}}</h4><br>
+    <span>기사원문:</span><a href="{{mh_link}}" target="_blank">{{mh_link}}</a><br>
+  </div>
+  </div>
+  <div id ='hkr'>
+    <h1 class="blue" align="center">{{hkr_news}}</h1>
+    <h2 id="hkr_title">{{hkr_title}} ({{hkr_date}})</h2><br>
+    <h4 id="hkr_summary">{{hkr_summary}}</h4><br>
+    <span>기사원문:</span><a name="url" href ="{{hkr_link}}" target="_blank">{{hkr_link}}</a><br>
+
+  </div>
+  <div id = 'ja'>
+    <h1 class='red' align="center">{{ja_news}}</h1>
+    <h2 id="ja_title">{{ja_title}} ({{ja_date}})</h2><br>
+    <h4 id="ja_summary">{{ja_summary}}</h4><br>
+    <span>기사원문:</span><a name="url" href="{{ja_link}}" target="_blank">{{ja_link}}</a><br>
+
+
+  </div>
+  <div id = 'khn' >
+    <h1 class="blue" align="center">{{khn_news}}</h1>
+    <h2 id="khn_title">{{khn_title}} ({{khn_date}})</h2><br>
+    <h4 id="khn_summary">{{khn_summary}}</h4><br>
+    <span>기사원문:</span><a name="url" href="{{khn_link}}" target="_blank">{{khn_link}}</a><br>
+  </div>
+
+  <div id = 'da'>
+    <h1 class='red' align="center">{{da_news}}</h1>
+    <h2 id="da_title">{{da_title}} ({{da_date}})</h2><br>
+    <h4 id="da_summary">{{da_summary}}</h4><br>
+    <span>기사원문:</span><a href="{{da_link}}" target="_blank">{{da_link}}</a><br>
+  </div>
+
+  <div id = 'omy'>
+    <h1 class="blue" align="center">{{omy_news}}</h1>
+    <h2 id="omy_title">{{omy_title}} ({{omy_date}})</h2><br>
+    <h4 id="omy_summary">{{omy_summary}}</h4><br>
+    <span>기사원문:</span><a href="{{omy_link}}" target="_blank">{{omy_link}}</a><br>
+  </div>
+
+
+</div>
+</body>
+
+
+{% endblock %}

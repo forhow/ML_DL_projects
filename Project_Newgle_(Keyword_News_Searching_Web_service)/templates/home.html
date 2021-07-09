@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Newgle</title>
+</head>
+
+
+
+
+<body>
+<h1 id="title">Newgle</h1>
+<form id="title_form" action="{% url 'save_kwd' %}" method="post">
+    {% csrf_token %}
+    <input id="keyword" type="text" placeholder="검색어를 입력하세요." name="keyword" >
+    <button class='button button1' type="submit" >검색</button>
+</form>
+
+</body>
+<style>
+#title{
+    border: 2px solid;
+    border-color: #7986CB;
+    background-color: #7986CB;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50;
+    width: 1000px;
+    padding: 20px 20px 20px 40px;
+    font-size: 50px;
+    font-family: "Georgia", Times, serif;
+    border-radius: 15px;
+}
+
+#title_form{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+   }
+
+#keyword{
+   width: 400px;
+   height: 30px;
+   padding: 4px 16px;
+}
+div.button{
+  background-color: #9FA8DA;
+  position: absolute;
+  top: 50px;
+  right: 30px;
+}
+.button {
+  background-color: #7986CB;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #7986CB;
+}
+
+.button1:hover {
+  background-color: #7986CB;
+  color: white;
+}
+
+</style>
+{% block content %}
+{% endblock %}
+</html>
+
+
